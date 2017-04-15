@@ -17,8 +17,8 @@ public class DestinationEntity {
         return id_flight;
     }
 
-    public int getId_city() {
-        return id_city;
+    public int getId_city(int id_city) {
+        return this.id_city;
     }
 
     public String getAirport_name() {
@@ -40,4 +40,5 @@ public class DestinationEntity {
     public void setAirport_name(String airport_name) {
         this.airport_name = airport_name;
     }
-}
+
+   }

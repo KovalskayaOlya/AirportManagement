@@ -9,7 +9,6 @@ public class CityEntity {
     private int code_country;
     private String city;
 
-
     public int getId_city() {
         return id_city;
     }

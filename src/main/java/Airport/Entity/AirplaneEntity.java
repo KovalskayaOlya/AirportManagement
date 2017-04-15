@@ -9,6 +9,17 @@ public class AirplaneEntity {
     private String model;
     private String airline;
 
+
+    public int getId_airplane() {
+        return id_airplane;
+    }
+    public String getModel() {
+        return model;
+    }
+
+    public String getAirline() {
+        return airline;
+    }
     public void setId_airplane(int id_airplane) {
         this.id_airplane = id_airplane;
     }
@@ -21,14 +32,4 @@ public class AirplaneEntity {
         this.airline = airline;
     }
 
-    public int getId_airplane() {
-        return id_airplane;
-    }
-    public String getModel() {
-        return model;
-    }
-
-    public String getAirline() {
-        return airline;
-    }
 }

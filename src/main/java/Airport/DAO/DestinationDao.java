@@ -37,9 +37,8 @@ public class DestinationDao {
                 DestinationEntity destinationEntity = new DestinationEntity ();
                 destinationEntity.setId_destination ( resultSet.getInt ( "Id_destination" ) );
                 destinationEntity.setId_flight ( resultSet.getInt ( "Id_flight" ) );
-                destinationEntity.setId_city (resultSet.getInt ( "Id_city" )  );
-                destinationEntity.setAirport_name ( resultSet.getString ( "Airport_name" ) );
-
+                destinationEntity.setId_city ( resultSet.getInt ( "Id_city" ) );
+                destinationEntity.setAirport_name (resultSet.getString ( "Airport_name" ) );
                 allDestination.add ( new DestinationEntity () );
             }
         } catch (SQLException e) {
@@ -51,7 +50,7 @@ public class DestinationDao {
     }
 
     public DestinationEntity getById(int id) {
-        DestinationEntity destinationEntity = null;
+       DestinationEntity destinationEntity = null;
         ResultSet resultSet = null;
         try (Connection connect = DriverManager.getConnection ( url, username, password );
              PreparedStatement preparedStatement = connect.prepareStatement ("SELECT * FROM destination WHERE ID = ?" )){
@@ -80,8 +79,9 @@ public class DestinationDao {
             PreparedStatement preparedStatement = connect.prepareStatement ( "INSERT INTO destination VALUES (?,?,?,?)" )){
             preparedStatement.setInt ( 1,destinationEntity.getId_destination () );
             preparedStatement.setInt ( 2,destinationEntity.getId_flight () );
-            preparedStatement.setInt ( 3,destinationEntity.getId_city (  ));
+            preparedStatement.setInt ( 3,destinationEntity.getId_city ());
             preparedStatement.setString ( 4,destinationEntity.getAirport_name () );
+
             preparedStatement.executeQuery ();
             preparedStatement.close ();
         } catch (SQLException e) {
@@ -95,7 +95,7 @@ public class DestinationDao {
                      "Class = ?, Passenger_id = ?, Seat_number = ? WHERE ID = ?" )){
             preparedStatement.setInt ( 1,destinationEntity.getId_destination () );
             preparedStatement.setInt ( 2,destinationEntity.getId_flight () );
-            preparedStatement.setInt ( 3,destinationEntity.getId_city (  ) );
+            preparedStatement.setInt ( 3,destinationEntity.getId_city () );
             preparedStatement.setString ( 4,destinationEntity.getAirport_name () );
             preparedStatement.close ();
         } catch (SQLException e) {

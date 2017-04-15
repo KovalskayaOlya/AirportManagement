@@ -2,7 +2,7 @@ package Airport.DAO;
 
 
 import Airport.Entity.AirplaneEntity;
-import Airport.Entity.CityEntity;
+
 
 import java.sql.*;
 import java.util.ArrayList;

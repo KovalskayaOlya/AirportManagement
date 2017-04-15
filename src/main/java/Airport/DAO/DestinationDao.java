@@ -1,6 +1,6 @@
 package Airport.DAO;
 
-import Airport.Entity.CityEntity;
+
 import Airport.Entity.DestinationEntity;
 
 import java.sql.*;
@@ -80,7 +80,7 @@ public class DestinationDao {
             PreparedStatement preparedStatement = connect.prepareStatement ( "INSERT INTO destination VALUES (?,?,?,?)" )){
             preparedStatement.setInt ( 1,destinationEntity.getId_destination () );
             preparedStatement.setInt ( 2,destinationEntity.getId_flight () );
-//            preparedStatement.setInt ( 3,destinationEntity.getId_city (  ) );
+            preparedStatement.setInt ( 3,destinationEntity.getId_city (  ));
             preparedStatement.setString ( 4,destinationEntity.getAirport_name () );
             preparedStatement.executeQuery ();
             preparedStatement.close ();
@@ -95,7 +95,7 @@ public class DestinationDao {
                      "Class = ?, Passenger_id = ?, Seat_number = ? WHERE ID = ?" )){
             preparedStatement.setInt ( 1,destinationEntity.getId_destination () );
             preparedStatement.setInt ( 2,destinationEntity.getId_flight () );
-//            preparedStatement.setInt ( 3,destinationEntity.getId_city ( ) );
+            preparedStatement.setInt ( 3,destinationEntity.getId_city (  ) );
             preparedStatement.setString ( 4,destinationEntity.getAirport_name () );
             preparedStatement.close ();
         } catch (SQLException e) {

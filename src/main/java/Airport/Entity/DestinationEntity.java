@@ -17,7 +17,7 @@ public class DestinationEntity {
         return id_flight;
     }
 
-    public int getId_city(int id_city) {
+    public int getId_city() {
         return this.id_city;
     }
 

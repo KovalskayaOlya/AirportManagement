@@ -40,6 +40,7 @@ public class AirplaneDao {
                 airplaneEntity.setId_airplane ( resultSet.getInt ( "Id_airplane" ));
                 airplaneEntity.setModel ( resultSet.getString ( "Model" ) );
                 airplaneEntity.setAirline ( resultSet.getString ( "Airline" ) );
+                airplaneEntity.setPlace_number ( resultSet.getInt ( "Place_number" ) );
                 allAirplane.add ( new AirplaneEntity () );
             }
         } catch (SQLException e) {
@@ -61,6 +62,7 @@ public class AirplaneDao {
             airplaneEntity.setId_airplane (resultSet.getInt ( "Id_airplane" )  );
             airplaneEntity.setModel ( resultSet.getString ( "Model" ) );
             airplaneEntity.setAirline ( resultSet.getString ( "Airline" ) );
+            airplaneEntity.setPlace_number ( resultSet.getInt ( "Place_number" ) );
         } catch (SQLException e) {
             e.printStackTrace ();
         } finally {
@@ -80,6 +82,7 @@ public class AirplaneDao {
             preparedStatement.setInt ( 1,airplaneEntity.getId_airplane () );
             preparedStatement.setString ( 2,airplaneEntity.getModel () );
             preparedStatement.setString ( 3,airplaneEntity.getAirline () );
+            preparedStatement.setInt ( 4,airplaneEntity.getPlace_number () );
             preparedStatement.executeQuery ();
             preparedStatement.close ();
         } catch (SQLException e) {
@@ -94,6 +97,7 @@ public class AirplaneDao {
             preparedStatement.setInt ( 1,airplaneEntity.getId_airplane () );
             preparedStatement.setString ( 2,airplaneEntity.getModel () );
             preparedStatement.setString ( 3,airplaneEntity.getAirline () );
+            preparedStatement.setInt ( 4,airplaneEntity.getPlace_number () );
             preparedStatement.close ();
         } catch (SQLException e) {
             e.printStackTrace ();

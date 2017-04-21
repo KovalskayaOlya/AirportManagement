@@ -15,10 +15,10 @@ public class TicketDao {
     private static final String password = "123654";
 
 
-    public void deleteById(int id) {
+    public void deleteById(TicketEntity idTicket) {
         try (Connection connect = DriverManager.getConnection ( url, username, password );
              PreparedStatement preparedStatement = connect.prepareStatement ( "DELETE FROM ticket WHERE ID = ?" )) {
-            preparedStatement.setInt ( 1, id );
+            preparedStatement.setInt (idTicket.getId_ticket (),1);
             preparedStatement.executeUpdate ();
             preparedStatement.close ();
         } catch (SQLException e) {
@@ -37,6 +37,7 @@ public class TicketDao {
                 ticketEntity.setId_ticket ( resultSet.getInt ( "Id_ticket") );
                 ticketEntity.setId_flight ( resultSet.getInt ( "Id_flight" ) );
                 ticketEntity.setCost ( resultSet.getInt ( "Cost" ) );
+                ticketEntity.setPlace ( resultSet.getInt ( "Place" ) );
                 allTicket.add ( new TicketEntity () );
             }
         } catch (SQLException e) {
@@ -58,6 +59,8 @@ public class TicketDao {
             ticketEntity.setId_ticket ( resultSet.getInt ( "Id_ticket" ) );
             ticketEntity.setId_flight ( resultSet.getInt (  "Id_flight") );
             ticketEntity.setCost ( resultSet.getInt ( "Cost" ) );
+            ticketEntity.setPlace ( resultSet.getInt ( "Place" ) );
+
         } catch (SQLException e) {
             e.printStackTrace ();
         } finally {
@@ -77,6 +80,7 @@ public class TicketDao {
             preparedStatement.setInt ( 1,ticketEntity.getId_ticket () );
             preparedStatement.setInt ( 2,ticketEntity.getId_flight () );
             preparedStatement.setInt ( 3,ticketEntity.getCost () );
+            preparedStatement.setInt ( 4,ticketEntity.getPlace () );
             preparedStatement.executeQuery ();
             preparedStatement.close ();
         } catch (SQLException e) {
@@ -91,9 +95,12 @@ public class TicketDao {
             preparedStatement.setInt ( 1,ticketEntity.getId_ticket () );
             preparedStatement.setInt ( 2,ticketEntity.getId_flight () );
             preparedStatement.setInt ( 3,ticketEntity.getCost () );
+            preparedStatement.setInt ( 4,ticketEntity.getPlace () );
             preparedStatement.close ();
         } catch (SQLException e) {
             e.printStackTrace ();
         }
     }
+
+
 }

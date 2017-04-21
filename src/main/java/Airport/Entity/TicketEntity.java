@@ -7,6 +7,7 @@ public class TicketEntity {
     private int id_ticket;
     private  int id_flight;
     private  int cost;
+    private  int place;
 
     public int getId_ticket() {
         return id_ticket;
@@ -20,6 +21,10 @@ public class TicketEntity {
         return cost;
     }
 
+    public int getPlace() {
+        return place;
+    }
+
     public void setId_ticket(int id_ticket) {
         this.id_ticket = id_ticket;
     }
@@ -30,6 +35,10 @@ public class TicketEntity {
 
     public void setCost(int cost) {
         this.cost = cost;
+    }
+
+    public void setPlace(int place) {
+        this.place = place;
     }
 }
 

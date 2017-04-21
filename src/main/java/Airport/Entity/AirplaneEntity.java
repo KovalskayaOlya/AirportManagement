@@ -1,5 +1,7 @@
 package Airport.Entity;
 
+import javax.swing.text.html.parser.Entity;
+
 /**
  * Created by Olechka on 06.04.2017.
  */
@@ -8,6 +10,8 @@ public class AirplaneEntity {
     private int id_airplane;
     private String model;
     private String airline;
+    private int place_number;
+
 
 
     public int getId_airplane() {
@@ -16,10 +20,14 @@ public class AirplaneEntity {
     public String getModel() {
         return model;
     }
-
     public String getAirline() {
         return airline;
     }
+
+    public int getPlace_number() {
+        return place_number;
+    }
+
     public void setId_airplane(int id_airplane) {
         this.id_airplane = id_airplane;
     }
@@ -32,4 +40,7 @@ public class AirplaneEntity {
         this.airline = airline;
     }
 
+    public void setPlace_number(int place_number) {
+        this.place_number = place_number;
+    }
 }

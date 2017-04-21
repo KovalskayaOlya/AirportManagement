@@ -1,7 +1,10 @@
 package Airport.DAO;
 
+import Airport.Entity.FlightEntity;
 import org.junit.Before;
 import org.junit.Test;
+
+import java.util.List;
 
 import static org.junit.Assert.*;
 
@@ -9,10 +12,10 @@ import static org.junit.Assert.*;
  * Created by Olechka on 15.04.2017.
  */
 public class FlightDaoTest {
-    FlightDao dao;
+    FlightDao flightDao;
     @Before
     public void init(){
-        dao = new FlightDao ();
+        flightDao = new FlightDao ();
     }
 
     @Test
@@ -20,6 +23,8 @@ public class FlightDaoTest {
     }
     @Test
     public void getAll()throws Exception{
+        List<FlightEntity> list = flightDao.getAll ();
+        System.out.println (list);
     }
     @Test
     public void getById()throws Exception{

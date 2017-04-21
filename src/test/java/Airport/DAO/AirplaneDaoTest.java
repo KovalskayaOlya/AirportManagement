@@ -10,11 +10,11 @@ import java.util.List;
  * Created by Olechka on 15.04.2017.
  */
 public class AirplaneDaoTest {
-    AirplaneDao dao;
+    AirplaneDao airplaneDao;
 
     @Before
     public void init(){
-        dao = new AirplaneDao ();
+        airplaneDao = new AirplaneDao ();
     }
 
     @Test
@@ -22,12 +22,16 @@ public class AirplaneDaoTest {
             }
     @Test
     public void getAll()throws Exception{
+        List<AirplaneEntity> list = airplaneDao.getAll ();
+        System.out.println (list);
     }
     @Test
     public void getById()throws Exception{
     }
     @Test
     public void save()throws Exception{
+        AirplaneEntity airplaneEntity = airplaneDao.getById ( 1 );
+
     }
     @Test
     public void update()throws Exception{

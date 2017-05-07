@@ -1,8 +1,8 @@
 CREATE TABLE `airplane` (
-
   `id_airplane` int(15) NOT NULL AUTO_INCREMENT,
   `model` varchar(25) NOT NULL,
   `airline` varchar(25) NOT NULL,
+  `place_number` varchar(25) DEFAULT NULL,
   PRIMARY KEY (`id_airplane`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
@@ -28,6 +28,7 @@ CREATE TABLE `ticket` (
   `id_ticket` int(15) NOT NULL AUTO_INCREMENT,
   `id_fling` int(15) NOT NULL,
   `cost` int(25) NOT NULL,
+  `place` varchar(25) DEFAULT NULL,
   PRIMARY KEY (`id_ticket`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 

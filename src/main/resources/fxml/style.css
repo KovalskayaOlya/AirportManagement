@@ -1,0 +1,11 @@
+.background {
+    -fx-background-image: url('file:E:/kurs/AirportManagement/src/main/resources/images/sky.jpg');
+}
+.button {
+     -fx-text-fill: white;
+     -fx-font-weight: bold;
+     -fx-background-color: linear-gradient(#0c38d7, #61a2b1);
+     -fx-effect: dropshadow( three-pass-box , rgba(0,0,0,0.6) , 5, 0.0 , 0 , 1 );
+}
+
+

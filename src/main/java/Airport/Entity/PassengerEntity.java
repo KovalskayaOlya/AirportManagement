@@ -7,13 +7,26 @@ public class PassengerEntity {
 
     private int id_passenger;
     private int id_ticket;
-    private String surname;
-    private  String name;
-    private  String middle_name;
-    private  String sex;
-    private String residense;
-    private String passport_data;
+    public String surname;
+    public String name;
+    public String middle_name;
+    public String sex;
+    public String residense;
+    public String passport_data;
 
+    public PassengerEntity(int id_passenger, int id_ticket,
+                           String surname, String name, String middle_name,
+                           String sex, String residense, String passport_data) {
+        this.id_passenger = id_passenger;
+        this.id_ticket = id_ticket;
+        this.surname = surname;
+        this.name = name;
+        this.middle_name = middle_name;
+        this.sex = sex;
+        this.residense = residense;
+        this.passport_data = passport_data;
+
+    }
     public int getId_passenger() {
         return id_passenger;
     }

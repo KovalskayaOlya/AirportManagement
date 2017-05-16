@@ -6,6 +6,7 @@ package Airport.Entity;
 public class TicketEntity {
     private int id_ticket;
     private  int id_flight;
+    private int id_passenger;
     private  int cost;
     private  int place;
 
@@ -25,6 +26,10 @@ public class TicketEntity {
         return place;
     }
 
+    public int getId_passenger() {
+        return id_passenger;
+    }
+
     public void setId_ticket(int id_ticket) {
         this.id_ticket = id_ticket;
     }
@@ -39,6 +44,10 @@ public class TicketEntity {
 
     public void setPlace(int place) {
         this.place = place;
+    }
+
+    public void setId_passenger(int id_passenger) {
+        this.id_passenger = id_passenger;
     }
 }
 

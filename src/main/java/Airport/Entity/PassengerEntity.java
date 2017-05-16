@@ -11,22 +11,29 @@ public class PassengerEntity {
     public String name;
     public String middle_name;
     public String sex;
+    public String data_of_birthday;
     public String residense;
     public String passport_data;
 
-    public PassengerEntity(int id_passenger, int id_ticket,
+        public PassengerEntity(int id_passenger, int id_ticket,
                            String surname, String name, String middle_name,
-                           String sex, String residense, String passport_data) {
+                           String sex, String data_of_birthday,String residense, String passport_data) {
         this.id_passenger = id_passenger;
         this.id_ticket = id_ticket;
         this.surname = surname;
         this.name = name;
         this.middle_name = middle_name;
         this.sex = sex;
+        this.data_of_birthday= data_of_birthday;
         this.residense = residense;
         this.passport_data = passport_data;
 
     }
+
+    public PassengerEntity() {
+
+    }
+
     public int getId_passenger() {
         return id_passenger;
     }
@@ -59,6 +66,10 @@ public class PassengerEntity {
         return passport_data;
     }
 
+    public String getData_of_birthday() {
+        return data_of_birthday;
+    }
+
     public void setId_passenger(int id_passenger) {
         this.id_passenger = id_passenger;
     }
@@ -81,6 +92,10 @@ public class PassengerEntity {
 
     public void setSex(String sex) {
         this.sex = sex;
+    }
+
+    public void setData_of_birthday(String data_of_birthday) {
+        this.data_of_birthday = data_of_birthday;
     }
 
     public void setResidense(String residense) {

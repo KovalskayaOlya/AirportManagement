@@ -27,7 +27,7 @@ public class FlightDao {
     }
 
     public List<FlightEntity> getAll() {
-        List<FlightEntity> allFlight= new ArrayList<> ( );
+        List<FlightEntity> allFlight = new ArrayList<> ();
         try (Connection connect = DriverManager.getConnection ( url, username, password );
              PreparedStatement preparedStatement = connect.prepareStatement ( "SELECT * FROM flight" );
              ResultSet resultSet = preparedStatement.executeQuery ()) {
@@ -39,12 +39,12 @@ public class FlightDao {
                 flightEntity.setId_ticket ( resultSet.getInt ( "Id_ticket" ) );
                 flightEntity.setId_destination ( resultSet.getInt ( "Id_destination" ) );
                 flightEntity.setDeparture_data ( resultSet.getInt ( "Departure_data" ) );
-                flightEntity.setDeparure_time ( resultSet.getInt ( "Deparute_time" ) );
+                flightEntity.setDeparture_time ( resultSet.getInt ( "Departure_time" ) );
                 flightEntity.setArrival_data ( resultSet.getInt ( "Arrival_data" ) );
                 flightEntity.setArrival_time ( resultSet.getInt ( "Arrival_time" ) );
-                flightEntity.setAircraft_number (resultSet.getInt ( "Aircraft_number" ));
+                flightEntity.setAircraft_number ( resultSet.getInt ( "Aircraft_number" ) );
                 allFlight.add ( new FlightEntity () );
-                }
+            }
         } catch (SQLException e) {
             System.out.println ( "Can not load" );
             e.printStackTrace ();
@@ -57,19 +57,19 @@ public class FlightDao {
         FlightEntity flightEntity = null;
         ResultSet resultSet = null;
         try (Connection connect = DriverManager.getConnection ( url, username, password );
-             PreparedStatement preparedStatement = connect.prepareStatement ("SELECT * FROM flight WHERE ID = ?" )){
-            preparedStatement.setInt (1,id);
+             PreparedStatement preparedStatement = connect.prepareStatement ( "SELECT * FROM flight WHERE ID = ?" )) {
+            preparedStatement.setInt ( 1, id );
             resultSet = preparedStatement.executeQuery ();
             flightEntity = new FlightEntity ();
             flightEntity.setId_flight ( resultSet.getInt ( "Id_flight" ) );
             flightEntity.setId_airplane ( resultSet.getInt ( "Id_airplane" ) );
-            flightEntity.setId_ticket (resultSet.getInt ( "Id_tocket" ));
+            flightEntity.setId_ticket ( resultSet.getInt ( "Id_tocket" ) );
             flightEntity.setId_destination ( resultSet.getInt ( "Id_destination" ) );
             flightEntity.setDeparture_data ( resultSet.getInt ( "Departure_data" ) );
-            flightEntity.setDeparure_time ( resultSet.getInt ( "Departure_time" ) );
+            flightEntity.setDeparture_time ( resultSet.getInt ( "Departure_time" ) );
             flightEntity.setArrival_data ( resultSet.getInt ( "Arrival_data" ) );
-            flightEntity.setArrival_time (resultSet.getInt ( "Arrival_time" ));
-            flightEntity.setAircraft_number (resultSet.getInt ( "Aircraft_number" ));
+            flightEntity.setArrival_time ( resultSet.getInt ( "Arrival_time" ) );
+            flightEntity.setAircraft_number ( resultSet.getInt ( "Aircraft_number" ) );
         } catch (SQLException e) {
             e.printStackTrace ();
         } finally {
@@ -84,17 +84,17 @@ public class FlightDao {
 
 
     public void save(FlightEntity flightEntity) {
-        try(Connection connect = DriverManager.getConnection ( url, username, password );
-            PreparedStatement preparedStatement = connect.prepareStatement ( "INSERT INTO flight VALUES (?,?,?,?)" )){
-            preparedStatement.setInt ( 1,flightEntity.getId_flight ());
-            preparedStatement.setInt ( 2,flightEntity.getId_airplane () );
-            preparedStatement.setInt ( 3,flightEntity.getId_ticket () );
-            preparedStatement.setInt ( 4,flightEntity.getId_destination () );
-            preparedStatement.setInt ( 5,flightEntity.getDeparture_data () );
-            preparedStatement.setInt ( 6,flightEntity.getDeparure_time () );
-            preparedStatement.setInt ( 7,flightEntity.getArrival_data () );
-            preparedStatement.setInt ( 8,flightEntity.getArrival_time ());
-            preparedStatement.setInt ( 9,flightEntity.getAircraft_number () );
+        try (Connection connect = DriverManager.getConnection ( url, username, password );
+             PreparedStatement preparedStatement = connect.prepareStatement ( "INSERT INTO flight VALUES (?,?,?,?,?,?,?,?,?)" )) {
+            preparedStatement.setInt ( 1, flightEntity.getId_flight () );
+            preparedStatement.setInt ( 2, flightEntity.getId_airplane () );
+            preparedStatement.setInt ( 3, flightEntity.getId_ticket () );
+            preparedStatement.setInt ( 4, flightEntity.getId_destination () );
+            preparedStatement.setInt ( 5, flightEntity.getDeparture_data () );
+            preparedStatement.setInt ( 6, flightEntity.getDeparture_time () );
+            preparedStatement.setInt ( 7, flightEntity.getArrival_data () );
+            preparedStatement.setInt ( 8, flightEntity.getArrival_time () );
+            preparedStatement.setInt ( 9, flightEntity.getAircraft_number () );
             preparedStatement.executeQuery ();
             preparedStatement.close ();
         } catch (SQLException e) {
@@ -104,17 +104,17 @@ public class FlightDao {
 
     public void update(FlightEntity flightEntity) {
         try (Connection connect = DriverManager.getConnection ( url, username, password );
-             PreparedStatement preparedStatement = connect.prepareStatement ( "UPDATE flight SET Voyage_id=?," +
-                     "Class = ?, Passenger_id = ?, Seat_number = ? WHERE ID = ?" )){
-            preparedStatement.setInt ( 1,flightEntity.getId_flight () );
-            preparedStatement.setInt ( 2,flightEntity.getId_airplane () );
-            preparedStatement.setInt ( 3,flightEntity.getId_ticket () );
-            preparedStatement.setInt ( 4,flightEntity.getId_destination () );
-            preparedStatement.setInt ( 5,flightEntity.getDeparture_data () );
-            preparedStatement.setInt ( 6,flightEntity.getDeparure_time () );
-            preparedStatement.setInt ( 7,flightEntity.getArrival_data () );
-            preparedStatement.setInt ( 8,flightEntity.getArrival_time () );
-            preparedStatement.setInt ( 9,flightEntity.getAircraft_number () );
+             PreparedStatement preparedStatement = connect.prepareStatement ( "UPDATE flight SET id_flight=?,id_airplane=?,id_ticket=?," +
+                     "id_destination=?,departure_data=?,departure_time=?,arrival_data=?,arrival_time=?,aircraft_number=? WHERE ID = ?" )) {
+            preparedStatement.setInt ( 1, flightEntity.getId_flight () );
+            preparedStatement.setInt ( 2, flightEntity.getId_airplane () );
+            preparedStatement.setInt ( 3, flightEntity.getId_ticket () );
+            preparedStatement.setInt ( 4, flightEntity.getId_destination () );
+            preparedStatement.setInt ( 5, flightEntity.getDeparture_data () );
+            preparedStatement.setInt ( 6, flightEntity.getDeparture_time () );
+            preparedStatement.setInt ( 7, flightEntity.getArrival_data () );
+            preparedStatement.setInt ( 8, flightEntity.getArrival_time () );
+            preparedStatement.setInt ( 9, flightEntity.getAircraft_number () );
 
             preparedStatement.close ();
         } catch (SQLException e) {

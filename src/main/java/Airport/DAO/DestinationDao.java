@@ -91,8 +91,8 @@ public class DestinationDao {
 
     public void update(DestinationEntity destinationEntity) {
         try (Connection connect = DriverManager.getConnection ( url, username, password );
-             PreparedStatement preparedStatement = connect.prepareStatement ( "UPDATE destination SET Voyage_id=?," +
-                     "Class = ?, Passenger_id = ?, Seat_number = ? WHERE ID = ?" )){
+             PreparedStatement preparedStatement = connect.prepareStatement ( "UPDATE destination SET id_destination=?, id_flight=?," +
+                     "id_city=?,airport_name=? WHERE ID = ?" )){
             preparedStatement.setInt ( 1,destinationEntity.getId_destination () );
             preparedStatement.setInt ( 2,destinationEntity.getId_flight () );
             preparedStatement.setInt ( 3,destinationEntity.getId_city () );

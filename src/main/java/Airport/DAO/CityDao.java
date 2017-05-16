@@ -1,7 +1,6 @@
 package Airport.DAO;
 
 
-
 import Airport.Entity.CityEntity;
 
 import java.sql.*;
@@ -31,19 +30,19 @@ public class CityDao {
     }
 
     public List<CityEntity> getAll() {
-        List<CityEntity> allCity = new ArrayList<> ( );
+        List<CityEntity> allCity = new ArrayList<> ();
         try (Connection connect = DriverManager.getConnection ( url, username, password );
              PreparedStatement preparedStatement = connect.prepareStatement ( "SELECT * FROM city" );
              ResultSet resultSet = preparedStatement.executeQuery ()) {
 
-             while (resultSet.next ()) {
-                 CityEntity cityEntity = new CityEntity ();
-                 cityEntity.setId_city ( resultSet.getInt ( "Id_city" ) );
-                 cityEntity.setId_destination ( resultSet.getInt ( "Id_destination" ) );
-                 cityEntity.setCode_country ( resultSet.getInt ( "Code_country" ) );
-                 cityEntity.setCity ( resultSet.getString ( "City" ) );
-                 allCity.add ( new CityEntity () );
-             }
+            while (resultSet.next ()) {
+                CityEntity cityEntity = new CityEntity ();
+                cityEntity.setId_city ( resultSet.getInt ( "Id_city" ) );
+                cityEntity.setId_destination ( resultSet.getInt ( "Id_destination" ) );
+                cityEntity.setCode_country ( resultSet.getInt ( "Code_country" ) );
+                cityEntity.setCity ( resultSet.getString ( "City" ) );
+                allCity.add ( new CityEntity () );
+            }
         } catch (SQLException e) {
             System.out.println ( "Can not load" );
             e.printStackTrace ();
@@ -56,14 +55,14 @@ public class CityDao {
         CityEntity cityEntity = null;
         ResultSet resultSet = null;
         try (Connection connect = DriverManager.getConnection ( url, username, password );
-             PreparedStatement preparedStatement = connect.prepareStatement ("SELECT * FROM city WHERE ID = ?" )){
-             preparedStatement.setInt (1,id);
-             resultSet = preparedStatement.executeQuery ();
-             cityEntity= new CityEntity ();
-             cityEntity.setId_city (resultSet.getInt ( "Id_city" ));
-             cityEntity.setId_destination ( resultSet.getInt ( "Id_destination" ) );
-             cityEntity.setCode_country ( resultSet.getInt ( "Code_country" ) );
-             cityEntity.setCity ( resultSet.getString ( "City" ) );
+             PreparedStatement preparedStatement = connect.prepareStatement ( "SELECT * FROM city WHERE ID = ?" )) {
+            preparedStatement.setInt ( 1, id );
+            resultSet = preparedStatement.executeQuery ();
+            cityEntity = new CityEntity ();
+            cityEntity.setId_city ( resultSet.getInt ( "Id_city" ) );
+            cityEntity.setId_destination ( resultSet.getInt ( "Id_destination" ) );
+            cityEntity.setCode_country ( resultSet.getInt ( "Code_country" ) );
+            cityEntity.setCity ( resultSet.getString ( "City" ) );
 
         } catch (SQLException e) {
             e.printStackTrace ();
@@ -79,12 +78,12 @@ public class CityDao {
 
 
     public void save(CityEntity cityEntity) {
-        try(Connection connect = DriverManager.getConnection ( url, username, password );
-            PreparedStatement preparedStatement = connect.prepareStatement ( "INSERT INTO city VALUES (?,?,?,?)" )){
-            preparedStatement.setInt ( 1,cityEntity.getId_city () );
-            preparedStatement.setInt ( 2,cityEntity.getId_destination () );
-            preparedStatement.setInt ( 3,cityEntity.getCode_country () );
-            preparedStatement.setString ( 4,cityEntity.getCity () );
+        try (Connection connect = DriverManager.getConnection ( url, username, password );
+             PreparedStatement preparedStatement = connect.prepareStatement ( "INSERT INTO city VALUES (?,?,?,?)" )) {
+            preparedStatement.setInt ( 1, cityEntity.getId_city () );
+            preparedStatement.setInt ( 2, cityEntity.getId_destination () );
+            preparedStatement.setInt ( 3, cityEntity.getCode_country () );
+            preparedStatement.setString ( 4, cityEntity.getCity () );
             preparedStatement.executeQuery ();
             preparedStatement.close ();
         } catch (SQLException e) {
@@ -94,12 +93,12 @@ public class CityDao {
 
     public void update(CityEntity cityEntity) {
         try (Connection connect = DriverManager.getConnection ( url, username, password );
-             PreparedStatement preparedStatement = connect.prepareStatement ( "UPDATE city SET Voyage_id=?," +
-                     "Class = ?, Passenger_id = ?, Seat_number = ? WHERE ID = ?" )){
-            preparedStatement.setInt ( 1,cityEntity.getId_city () );
-            preparedStatement.setInt ( 2,cityEntity.getId_destination () );
-            preparedStatement.setInt ( 3,cityEntity.getCode_country () );
-            preparedStatement.setString ( 4,cityEntity.getCity () );
+             PreparedStatement preparedStatement = connect.prepareStatement ( "UPDATE city SET id_city=?,id_desination=?,code_country=?," +
+                     "city=? WHERE ID = ?" )) {
+            preparedStatement.setInt ( 1, cityEntity.getId_city () );
+            preparedStatement.setInt ( 2, cityEntity.getId_destination () );
+            preparedStatement.setInt ( 3, cityEntity.getCode_country () );
+            preparedStatement.setString ( 4, cityEntity.getCity () );
             preparedStatement.close ();
         } catch (SQLException e) {
             e.printStackTrace ();

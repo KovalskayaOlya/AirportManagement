@@ -76,11 +76,12 @@ public class TicketDao {
 
     public void save(TicketEntity ticketEntity) {
         try(Connection connect = DriverManager.getConnection ( url, username, password );
-            PreparedStatement preparedStatement = connect.prepareStatement ( "INSERT INTO ticket VALUES (?,?,?,?)" )){
+            PreparedStatement preparedStatement = connect.prepareStatement ( "INSERT INTO ticket VALUES (?,?,?,?,?)" )){
             preparedStatement.setInt ( 1,ticketEntity.getId_ticket () );
             preparedStatement.setInt ( 2,ticketEntity.getId_flight () );
-            preparedStatement.setInt ( 3,ticketEntity.getCost () );
-            preparedStatement.setInt ( 4,ticketEntity.getPlace () );
+            preparedStatement.setInt ( 3,ticketEntity.getId_passenger () );
+            preparedStatement.setInt ( 4,ticketEntity.getCost () );
+            preparedStatement.setInt ( 5,ticketEntity.getPlace () );
             preparedStatement.executeQuery ();
             preparedStatement.close ();
         } catch (SQLException e) {
@@ -90,12 +91,13 @@ public class TicketDao {
 
     public void update(TicketEntity ticketEntity) {
         try (Connection connect = DriverManager.getConnection ( url, username, password );
-             PreparedStatement preparedStatement = connect.prepareStatement ( "UPDATE ticket SET Voyage_id=?," +
-                     "Class = ?, Passenger_id = ?, Seat_number = ? WHERE ID = ?" )){
+             PreparedStatement preparedStatement = connect.prepareStatement ( "UPDATE ticket SET id_ticket=?,id_flight=?,id_passenger=?," +
+                     "cost=?,place=? WHERE ID = ?" )){
             preparedStatement.setInt ( 1,ticketEntity.getId_ticket () );
             preparedStatement.setInt ( 2,ticketEntity.getId_flight () );
-            preparedStatement.setInt ( 3,ticketEntity.getCost () );
-            preparedStatement.setInt ( 4,ticketEntity.getPlace () );
+            preparedStatement.setInt ( 3,ticketEntity.getId_passenger () );
+            preparedStatement.setInt ( 4,ticketEntity.getCost () );
+            preparedStatement.setInt ( 5,ticketEntity.getPlace () );
             preparedStatement.close ();
         } catch (SQLException e) {
             e.printStackTrace ();

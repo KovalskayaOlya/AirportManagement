@@ -92,8 +92,8 @@ public class AirplaneDao {
 
     public void update(AirplaneEntity airplaneEntity) {
         try (Connection connect = DriverManager.getConnection ( url, username, password );
-             PreparedStatement preparedStatement = connect.prepareStatement ( "UPDATE airplane SET Voyage_id=?," +
-                     "Class = ?, Passenger_id = ?, Seat_number = ? WHERE ID = ?" )){
+             PreparedStatement preparedStatement = connect.prepareStatement ( "UPDATE airplane SET id_airplane =?,model=?,airplane=?" +
+                     "place_number=? WHERE ID = ?" )){
             preparedStatement.setInt ( 1,airplaneEntity.getId_airplane () );
             preparedStatement.setString ( 2,airplaneEntity.getModel () );
             preparedStatement.setString ( 3,airplaneEntity.getAirline () );

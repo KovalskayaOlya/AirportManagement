@@ -9,7 +9,7 @@ public class FlightEntity {
     private   int id_ticket;
     private   int id_destination;
     private   int departure_data;
-    private   int deparure_time;
+    private   int departure_time;
     private   int arrival_data;
     private   int arrival_time;
     private   int aircraft_number;
@@ -34,8 +34,8 @@ public class FlightEntity {
         return departure_data;
     }
 
-    public int getDeparure_time() {
-        return deparure_time;
+    public int getDeparture_time() {
+        return departure_time;
     }
 
     public int getArrival_data() {
@@ -70,8 +70,8 @@ public class FlightEntity {
         this.departure_data = departure_data;
     }
 
-    public void setDeparure_time(int deparure_time) {
-        this.deparure_time = deparure_time;
+    public void setDeparture_time(int departure_time) {
+        this.departure_time = departure_time;
     }
 
     public void setArrival_data(int arrival_data) {
